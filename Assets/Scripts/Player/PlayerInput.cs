@@ -7,7 +7,7 @@ public class PlayerInput : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
 
-    public UnityAction<Ray> PlayerShooted;
+    public UnityAction<Ray> Shooted;
 
     private void Update()
     {
@@ -15,7 +15,7 @@ public class PlayerInput : MonoBehaviour
 
 
         if (Input.GetMouseButtonDown(0))
-            PlayerShooted?.Invoke(positionToHit);
+            Shooted?.Invoke(positionToHit);
     }
 
 

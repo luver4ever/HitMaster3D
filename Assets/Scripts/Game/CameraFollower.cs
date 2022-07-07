@@ -23,10 +23,10 @@ public class CameraFollower : MonoBehaviour
 
     private void OnGameStart()
     {
-        StartCoroutine(SetCamera());
+        StartCoroutine(MoveCameraToViewPoint());
     }
 
-    private IEnumerator SetCamera()
+    private IEnumerator MoveCameraToViewPoint()
     {
         var pathTime = 2f;
         var elapsedTime = 0f;
@@ -41,11 +41,11 @@ public class CameraFollower : MonoBehaviour
         }
         _cameraSetted = true;
     }
-    private void FixedUpdate()
+    private void Update()
     {
         if(_cameraSetted == true)
         {
-            transform.position = Vector3.MoveTowards(transform.position, _lookPoint.position + _positionOffset, 10f * Time.fixedDeltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, _lookPoint.position + _positionOffset, 10f * Time.deltaTime);
             transform.LookAt(_lookPoint.position);
         }
     }

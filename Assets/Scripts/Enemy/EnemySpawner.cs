@@ -6,12 +6,10 @@ using UnityEngine.Events;
 public class EnemySpawner : MonoBehaviour
 {
 
-    public void SpawnEnemy(Enemy enemyPrefab, List<Enemy> enemyList, EnemySpawnPoint spawnPoint, UnityAction<Enemy> OnEnemyDie)
+    public Enemy SpawnEnemy(Enemy enemyPrefab, EnemySpawnPoint spawnPoint)
     {
-        var newEnemy = Instantiate(enemyPrefab, spawnPoint.transform);
+        // var newEnemy = ;
 
-        enemyList.Add(newEnemy);
-
-        newEnemy.Dying += OnEnemyDie;
+        return Instantiate(enemyPrefab, spawnPoint.transform);
     }
 }

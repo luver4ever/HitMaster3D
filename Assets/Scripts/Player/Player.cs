@@ -18,11 +18,11 @@ public class Player : MonoBehaviour
     }
     private void OnEnable()
     {
-        _playerInput.PlayerShooted += OnPlayerShoot;
+        _playerInput.Shooted += OnPlayerShoot;
     }
     private void OnDisable()
     {
-        _playerInput.PlayerShooted -= OnPlayerShoot;
+        _playerInput.Shooted -= OnPlayerShoot;
     }
 
     private void OnPlayerShoot(Ray ray)

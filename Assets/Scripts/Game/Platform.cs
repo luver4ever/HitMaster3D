@@ -22,7 +22,11 @@ public class Platform : MonoBehaviour
 
         for (int i = 0; i < _spawnPointsOfEnemies.Length; i++)
         {
-            _spawner.SpawnEnemy(_enemyPrefab, _enemiesOnPlatform, _spawnPointsOfEnemies[i], OnEnemyDied);
+            var newEnemy = _spawner.SpawnEnemy(_enemyPrefab, _spawnPointsOfEnemies[i]);
+
+            newEnemy.Dying += OnEnemyDied;
+
+            _enemiesOnPlatform.Add(newEnemy);
         }
     }
 
